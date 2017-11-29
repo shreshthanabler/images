@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="web-app">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="pragma" content="no-cache" />
+	    <link rel="shortcut icon" href="https://raw.githubusercontent.com/shreshthanabler/images/master/logo.png" type="image/png">
+	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	    
+	    <title>Nabler</title>
+	    <base href="/">
+   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Gudea">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	 <!--  	<link href="/css/materialize-style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link rel="stylesheet" type="text/css" href="/css/sweet-alert/sweetalert.css"> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+	</head>
+	<body class="red darken-2">
+		<script>
+			var app = angular.module('web-app', []);
+			app.controller('InfoController', function($scope,$window) {
+				$scope.name='';
+				$scope.fresher=false;
+				$scope.less_than_two=false;
+				$scope.more_than_two=false;
+				
+				$scope.question = function(){
+					if ($scope.name=="" || ($scope.fresher==false && $scope.less_than_two==false)){
+						alert("please fill all details");
+					}
+					
+					else{
+						if($scope.fresher==true){
+							$window.location.href="file:///C:/Users/shreshtha.a/Desktop/interview/public/index/fresher.html";
+						}
+						else{
+							$window.location.href="file:///C:/Users/shreshtha.a/Desktop/interview/public/index/twoplus_exp.html";
+						}
+					}
+				}
+				
+				$scope.exp = function(val){
+					switch (val){
+						case 1:
+							$scope.fresher=true;
+							break;
+						case 2:
+							$scope.less_than_two=true;
+							break;
+						default:
+					}
+				}
+				
+				$scope.signout = function(){					
+					$window.location.href="file:///C:/Users/shreshtha.a/Desktop/interview/public/index/interview.html";
+				}
+			});
+		</script>
+		<header>	
+			<main>
+				<nav>
+					<div class="nav-wrapper z-depth-0 black" ng-controller="InfoController">
+						<ul class="hide-on-med-and-down left">      	 
+							<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/nabler.png" style="height:50px;padding-top:15px;">
+						</ul>
+						<ul class="hide-on-med-and-down right">      	 
+							<li><a href="" ng-click="signout()">Signout</a></li> 
+						</ul>
+					</div>
+				</nav>
+			</main>	
+		</header>
+		<div class="row col s12 m12 l12" ng-controller="InfoController">
+  			<div class="col s10 m4 l4 offset-s1 offset-m4 offset-l3  white z-index-1 " style="top:120px;position:relative">
+        		<div class="input-field col l12 m12 s12">
+    				<p style="text-align:center;margin:0px">
+   						<img class="circle responsive-img" style="height:50px;" src="C:/Users/shreshtha.a/Desktop/interview/public/img/nabler.png"   align="middle">
+   					</p> 
+  				</div>
+        		<div class="col l12 m12 s12">
+    				<p class="center login-form-text">Enter Details</p>
+  				</div>	
+     				<form class="col s12 m12 l12" >
+      					<div class="row">
+        					<div class="input-field col s12">
+          						<i class="material-icons prefix">account_circle</i>
+          						<input id="icon_prefix" type="text" class="validate" ng-model="name"  placeholder="Enter name" required>
+          						<label for="icon_prefix">Name</label>
+        					</div>
+        					<div class="input-field row col s12">
+         						<i class="material-icons prefix">featured_play_list</i>
+          						<label for="Password">Select your relevant experience</label>
+								<div class="row" style="padding-top:15px;">
+									<p>
+									  <input class="with-gap" name="group1" type="radio" id="test1" ng-click="exp(1)"/>
+									  <label for="test1">Fresher</label>
+									</p>
+									<p>
+									  <input  class="with-gap" name="group1" type="radio" id="test2" ng-click="exp(2)"/>
+									  <label for="test2">Experienced</label>
+									</p>
+								</div>
+        					</div> 
+        					<div class="row center">
+        						<button class="btn waves-effect center waves-light" type="submit" name="action" ng-click="question()" >Start Test
+        							<i class="material-icons right">send</i></button>
+        					</div>
+     					</div>   
+  					</form>
+  			</div>
+  		</div>
+	</body>
+</html>
