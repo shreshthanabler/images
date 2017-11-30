@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="web-app">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="pragma" content="no-cache" />
+	    <link rel="shortcut icon" href="https://raw.githubusercontent.com/shreshthanabler/images/master/logo.png" type="image/png">
+	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	    
+	    <title>Nabler</title>
+	    <base href="/">
+   		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Gudea">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	 <!--  	<link href="/css/materialize-style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link rel="stylesheet" type="text/css" href="/css/sweet-alert/sweetalert.css"> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+	</head>
+	<body>
+		<script>
+			var app = angular.module('web-app', []);
+			app.controller('InfoController', function($scope,$window) {
+				
+				$scope.signout = function(){					
+					$window.location.href="file:///C:/Users/shreshtha.a/Desktop/interview/public/index/interview.html";
+				}
+				$scope.change = function(){					
+					$window.location.href="https://cdn.rawgit.com/shreshthanabler/images/master/basic_info.html";
+				}
+
+				$scope.WriteToFile = function (passForm) {
+				  var fso = new ActiveXObject("Scripting.FileSystemObject");
+				  var fileLoc = "D:\\sample.csv";
+				  var file = fso.CreateTextFile(fileLoc, true);
+				  file.writeline(passForm.username.value + ',' +
+								 passForm.rating.value);
+				  file.Close();
+				  alert('File created successfully at location: ' + fileLoc);
+				}
+				
+				$scope.stopTest = function(){
+					document.getElementById('rating').style.display="block"; 
+				}
+			});
+		</script>
+		<header>	
+			<main>
+				<nav>
+					<div class="nav-wrapper z-depth-0 black" ng-controller="InfoController">
+						<ul class="hide-on-med-and-down left">      	 
+							<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/nabler.png" style="height:50px;padding-top:15px;">
+						</ul>
+						<ul class="hide-on-med-and-down right">
+							<li><a href="" ng-click="change()">Change experience</a></li> 						
+						<!--	<li><a href="" ng-click="signout()">Signout</a></li> -->
+						</ul>
+					</div>
+				</nav>
+			</main>	
+		</header>
+		<div class="row" ng-controller="InfoController">
+			<div class="row col s2 m2 l2 offset-l4">
+				<h4 style="color:red;"><i><b>Instructions</b></i></h4>
+			</div>
+			<div class="row col s12 m12 l12">
+				<ol style="list-style-type: square;">
+					<li>Use notepad++ or notepad for coding.
+					<li>You can use Bootstrap or any library you are comfortable with.</li>
+					<li>Create a folder of your name on desktop and save all your codes in the folder.</li>
+					<li>Time limit for the test is 2 hrs.</li>
+				</ol>
+				<div></div>
+				<h6 style="padding-left:40px;"><b>All the best</b></h6>
+			</div>
+			<div class="row col s2 m2 l2 offset-l5">
+				<h4 style="color:red;"><i><b>Questions</b></i></h4>
+			</div>
+			<div class="row col s12 m12 l12" style="padding-left:40px;">
+				<h5><b>Ques-1.</b></h5><p><b>Create a web page using all images like below</b></p>
+				<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/Capture.PNG" style="height:300px;padding-top:15px;">
+				<p><b>And on hover just show different image like below</b></p>
+				<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/H -Capture.PNG" style="height:300px;padding-top:15px;">
+				<p> Source for image Business Management:"https://raw.githubusercontent.com/shreshthanabler/images/master/business-management.png"</p>
+				<p> Source for image Line :"https://raw.githubusercontent.com/shreshthanabler/images/master/ctu-nodesimg-transbkg.png"</p>
+				<p> Source for image Engineering and Computer Science:"https://raw.githubusercontent.com/shreshthanabler/images/master/ecs.png"</p>
+				<p> Source for image Healthcare:"https://raw.githubusercontent.com/shreshthanabler/images/master/healthcare.png"</p>
+				<p> Source for image Information Technology:"https://raw.githubusercontent.com/shreshthanabler/images/master/information-technology.png"</p>
+				<p> Source for image Nursing:"https://raw.githubusercontent.com/shreshthanabler/images/master/nursing.png"</p>
+				<p> Source for image Project Management:"https://raw.githubusercontent.com/shreshthanabler/images/master/project-management.png"</p>
+				<p> Source for image Security Studies:"https://raw.githubusercontent.com/shreshthanabler/images/master/security-studies.png"</p>
+				
+				<p> Source for red image Business Management:"https://raw.githubusercontent.com/shreshthanabler/images/master/H - business-management (1).PNG"</p>
+				<p> Source for red image Engineering and Computer Science:"https://raw.githubusercontent.com/shreshthanabler/images/master/H - ecs (1).PNG"</p>
+				<p> Source for red image Healthcare:"https://raw.githubusercontent.com/shreshthanabler/images/master/H - healthcare (1).png"</p>
+				<p> Source for red image Information Technology:"https://raw.githubusercontent.com/shreshthanabler/images/master/H - information-technology (1).png"</p>
+				<p> Source for red image Nursing:"https://raw.githubusercontent.com/shreshthanabler/images/master/H - nursing (1).png"</p>
+				<p> Source for red image Project Management:"https://raw.githubusercontent.com/shreshthanabler/images/master/H - project-management (1).png"</p>
+				<p> Source for red image Security Studies:"https://raw.githubusercontent.com/shreshthanabler/images/master/H - security-studies (1).png"</p>
+			<!--	<p><b> Source for image Next :"https://raw.githubusercontent.com/shreshthanabler/images/master/next.png"</b></p>-->
+			</div>
+			<div class="row col s12 m12 l12" style="padding-left:40px;">
+				<h5><b>Ques-2.</b></h5><p><b>Create a web page which has a "Contact US" form.
+				<p><b>It should have Name, email address,Phone number,Gender,Birthday and textarea to enter question.</b></p>
+				<p><b>On the submit button validate all the field and pass the value in an alert, if it’s successful submit then alert should be successful if it has any validation error then alert should show the validation error.</b></p>
+				<p><b>Validation type name should not be blank and hould have only characters, the email address should match the email pattern,Phone number should have maximum of 11 digits and minimu of 10 digits, birthday should follow DD/MM/YYYY pattern and textarea should have maximum of 20 characters limit if user has selected Male as gender and 25 if user has selected Female as gender.</b></p>
+				<img src="https://raw.githubusercontent.com/shreshthanabler/images/master/fomr_2.JPG" style="height:400px;padding-top:15px;">
+			</div>
+		<!--	<div class="row col s6 m6 l4 offset-l5">
+        		<button class="btn waves-effect center waves-light" type="submit" name="action" ng-click="stopTest()" >Stop Test
+        			<i class="material-icons right">send</i></button>
+        	</div>
+			<div></div>
+			<div class="row col s12 m12 l6 offset-l3" id="rating" style="display:none">
+				<form class="col s12 m12 l12" >
+      				<div class="row">
+        				<div class="input-field col s12">
+          					<i class="material-icons prefix">account_circle</i>
+          					<input id="icon_prefix" type="text" class="validate" ng-model="username" name="username" placeholder="username or email" required>
+          					<label for="icon_prefix">User Name</label>
+        				</div>
+        				<div class="input-field row col s12">
+         					<i class="material-icons prefix">lock_outline</i>
+          					<input id="password" type="number" class="validate" ng-model="rating" name="rating" placeholder="rating" required>
+          					<label for="Password">Rating</label>
+        				</div>
+     				</div> 
+					<div class="row col s6 m6 l4 offset-l5">
+						<button class="btn waves-effect center waves-light" type="submit" name="action" ng-click="WriteToFile()" >Save
+							<i class="material-icons right">send</i></button>
+					</div>						
+  				</form>
+			</div>-->
+  		</div>
+	</body>
+</html>
