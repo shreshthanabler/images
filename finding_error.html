@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta http-equiv="pragma" content="no-cache" />
+	    <link rel="shortcut icon" href="https://raw.githubusercontent.com/shreshthanabler/images/master/logo.png" type="image/png">
+	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	    
+	    <title>Nabler</title>		
+	</head>
+	<body class="red darken-2">
+		<style>
+			@media (max-width:1030px){
+				.col.m6,col.l6 {
+					float: left;
+					width:100% !important;
+					margin-left:2%;
+					box-sizing: border-box;
+					padding: 0 0.75rem;
+				}
+				
+				form{
+					margin-bottom:20px;
+				}
+			}
+			
+			html {
+				font-size: 14px;
+				line-height: 1.5;
+				font-family: "Roboto", sans-serif;
+				font-weight: normal;
+				color: rgba(0,0,0,0.87);
+			}
+			body {
+				margin: 0;
+			}
+			.red.darken-2 {
+				background-color: #D32F2F !important;
+			}
+			
+			.row {
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 20px;
+			}
+			
+			.row .col.offset-m4 {
+				margin-left: 30%;
+			}
+			
+			.row .col {
+				box-sizing: border-box;
+				padding: 0 0.75rem;
+			}
+			.col.m6,col.l6 {
+				width:48%;
+				margin-left:2%;
+				box-sizing: border-box;
+				padding: 0 0.75rem;
+			}
+			.row .col.m4 {
+				width: 40%;
+			}
+			.white {
+				background-color: #fff !important;
+				top:120px;
+				position:relative;
+			}
+			.row .col.m12 {
+				width: 100%;
+				margin-left: auto;
+				left: auto;
+				right: auto;
+			}
+			.center, .center-align {
+				text-align: center;
+			}
+			input{
+				disply:block;
+				margin-top:5px;
+			}
+			textarea{
+				disply:block;
+				margin-top:5px;
+				height:50px;
+				width:170px;
+			}
+			.col p {
+				margin-top:0px;
+			}
+			h5{
+				font-size:20px;
+			}
+		</style>
+		
+		<script>				
+			
+			function question(){
+				var name= document.getElementById('name').value;
+				var email= document.getElementById('email').value;
+				var number= document.getElementById('number').value;
+				var birthday= document.getElementById('birthday').value;
+				var gender_male=document.getElementById('test2').value ;
+				var gender_female= document.getElementById('test1').value;
+				var question= document.getElementById('question').value ;
+				if (gender_male==false || gender_female==false){
+					alert("please select gender");
+				}
+				
+				else{
+					var validated_name=validate_name(name);
+					var validated_email=validate_email(email);
+					var validated_number=validate_number(number);
+					var validated_birthday=validate_birthday(birthday);
+					
+					if(validated_name && validated_email && validated_number && validated_birthday){
+						alert('Your query has been sent successfully');
+					}
+					else{
+						return false;
+					}
+					
+				}
+	
+			}
+			
+			function gender(element){
+				if (element.id=='test1'){
+					var max=25;
+					document.getElementById('question').value="";
+				}
+				else {
+					var max=20;
+					document.getElementById('question').value="";
+				}
+			}
+				
+			function validate_name(name){
+				var letters = /^[a-z]+$/; 
+				if(name!="" && name.match(letters))  {  
+					return true;    
+				}  
+				else  {  
+					alert('Please input alphanumeric characters only in name field');  
+					return false;  
+				}  
+			}
+			
+			function validate_email(email){  
+				if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {  
+					return true;
+				}  
+				else{
+					alert("You have entered an invalid email address!")  
+					return false; 
+				}
+			}
+			
+			function validate_number(number){  
+				var phoneno = /^\d{11}$/; 
+				if (number.length>9 && number.match(phoneno)) {  
+					return true;
+				}  
+				else{
+					alert("You have entered an invalid phone number")  
+					return false; 
+				}
+			
+			
+			function validate_birthday(birthday){  
+				var birthdateformat = /^\d{1,2}\/\d{1,2}\/\d{4}$/; 
+				if (birthday.match(birthdateformat)) {  
+					return true;
+				}  
+				else{
+					alert("You have entered an invalid date")  
+				    false; 
+				}
+			}
+				
+			function validate_question(element) {  
+				return (element.value.length <= max); 
+			}
+		</script>
+		<div class="row col s12 m12 l12">
+  			<div class="row col s10 m4 l8 offset-s1 offset-m4 offset-l2  white z-index-1 ">
+        		<div class="row col l12 m12 s12">
+    				<h5 class="center login-form-text"><b>Contact US</b></h5>
+  				</div>	
+     				<form class="col s12 m12 l12" >
+      					<div class="row col s12 m12 l12">
+        					<div class="col s12 m6 l6">
+							Name:
+          						<input id="name" type="text" class="validate" placeholder="Enter name">
+        					</div>
+							<div class="col s12 m6 l6">
+							Email Address:
+          						<input id="email" type="text" class="validate" placeholder="Enter Email address">
+        					</div>
+     					</div>
+						<div class="row col s12 m12 l12">
+        					<div class="col s12 m6 l6">
+							Phone Number:
+          						<input id="number" type="text" class="validate" placeholder="Enter Phone number">
+        					</div>
+							<div class="col s12 m6 l6">
+							Birthday:
+          						<input id="birthday" type="text" class="validate"  placeholder="Enter Birthday">
+        					</div>
+     					</div>  
+						<div class="row col s12 m12 l12">
+							<div class="col s12 m6 l6">Gender
+								<p>
+								  <input class="with-gap" type="radio" id="test1" onclick="gender(this)"/>
+								  <label for="test1">Female</label>
+								</p>
+								<p>
+								  <input  class="with-gap" type="radio" id="test2" onclick="gender(this)"/>
+								  <label for="test2">Male</label>
+								</p>
+							</div>
+							<div class="col s12 m6 l6">
+							Question:
+          						<textarea id="question" type="text" class="validate" onkeypress="return validate_question();"  placeholder="Enter question" ></textarea>
+        					</div>
+        				</div> 
+					</form>						
+					<div class="row center">
+        				<button class="btn waves-effect center waves-light" type="submit" name="action" onclick="question()" >Submit</button>
+        			</div>						
+  			</div>
+  		</div>
+	</body>
+</html>
